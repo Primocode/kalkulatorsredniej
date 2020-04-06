@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Narzędzie do liczenia średniej ocen z uporządkowaniem do poszczególnych przedmiotów.">
+    <title>Narzędzie do liczenia średniej ocen</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="tool-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="window">
+        <div class="window-main-container">
+            <div class="window-container"> 
+                <div class="circle-container">
+                    <div class="circle-active"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="window-content-container">
+                    <div class="window-text">
+                        <h2>Opis narzędzia</h2>
+                        <p>Narzędzie pozwala na liczenie średniej ocen, plusem jest uporządkowanie, co zmniejsza ryzyko pomyłki, i pozwala oszczędzić czas.</p>
+                    </div>
+                    <div class="window-img-1">
+                        <img src="image-index/main-photo.png">
+                    </div>
+                </div>
+            </div>
+            <div class="window-container">
+                <div class="circle-container">
+                    <div class="circle"></div>
+                    <div class="circle-active"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="window-content-container">
+                    <div class="window-text">
+                        <h2>Działanie</h2>
+                        <p>Po załadowaniu narzędzia należy wpisać przedmiot szkolny. Jeżeli zdarzy się pomyłka, można bezpośrednio go usunąć. Warto pamiętać o opcji - „Wszystkie przedmioty szkolne” by automatycznie dodać wszystkie przedmioty.</p>
+                    </div>
+                    <div class="window-img-2">
+                        <img src="image-index/general.png">
+                    </div>
+                </div>
+            </div>
+            <div class="window-container">
+                <div class="circle-container">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle-active"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="window-content-container">
+                    <div class="window-text">
+                        <h2>Liczenie</h2>
+                        <p>Gdy przedmioty będą dodane, należy wpisać ocenę w pole wraz z wagą, by dodać ją do odpowiedniego przedmiotu poprzez wciśnięcie plusa. Ocenę również można usunąć, po czym kalkulator sam obliczy średnią przedmiotu i pokaże ją w polu.</p>
+                    </div>
+                    <div class="window-img-3">
+                        <img src="image-index/general-grade.png">
+                    </div>
+                </div>
+            </div>
+            <div class="window-container">
+                <div class="circle-container">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle-active"></div>
+                </div>
+                <div class="window-content-container">
+                    <div class="window-text">
+                        <h2>System błędow</h2>
+                        <p>Narzędzie nie pozwoli na dodanie przedmiotu bez nazwy, dodania oceny bez wartości, jak i oceny większej niż 6 lub mniejszej niż 1. Bez ocen kalkulator nie obliczy średniej. Jak i usunięcie przedmiotu z ocenami będzie niemożliwe, wymaga to usunięcia pozostałych ocen przypisanych dodanego przedmiotu. W takich sytuacjach narzędzie poinformuje o błędzie.</p>
+                    </div>
+                    <div class="window-img-4">
+                        <img src="image-index/error.png">
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-container">
+                <button class="previous">Wstecz</button>
+                <button class="next">Dalej</button>
+                <button class="goto">Przejdz</button>
+            </div>
+        </div>
+    </div> 
+    <div class="message"></div>
+    <nav class="nav">
+        <div class="navigation">
+            <div class="menu-nav">
+                <ul class="list-ul">
+                    <li class="list-li"><span class="fas fa-home"></span><a href="index.html">Główna</a></li>
+                    <li class="list-li"><span class="fas fa-info"></span><a href="index.html">Informacje</a></li>	
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="wrapper">
+            <div class="rightContent">
+                <div class="table-one">
+                    <div class="menu">
+                        <div class="menu-select">
+                            <h3 class="gradeOpen">Wszystkie przedmioty szkolne</h3>
+                        </div>
+                        <div class="menu-right">
+                            <span class="fas fa-chevron-down"></span>
+                        </div>
+                    </div>
+                    <div class="enterGrade">
+                        <div class="enterGradeText">
+                            <h3>Ocena</h3>
+                            <h3>Waga</h3>
+                        </div>
+                        <div class="numbers">
+                            <input type="number"class="inputGrade">
+                            <input type="number"class="inputWeight">
+                        </div> 
+                    </div>
+                </div>                                                              
+                <div class="content"></div>
+                <div class="buttonAddSubject">
+                    <input class="text" placeholder="Podaj przedmiot szkolny">
+                    <button class="addButton">Dodaj</button>
+                </div>
+                <div class="result">
+                    <button class="showResult">Oblicz średnią przedmiotów</button>
+                    <div class="showresulttext">
+                        <h2 class="resultText"></h2>
+                    </div>
+                </div>
+                <div id="calc"></div>
+            </div>
+        </div>
+        <div id="result"></div>
+    </main>
+    <script src="script.js"></script>
+    <script src="instruction.js"></script>
+</body>
+</html>
