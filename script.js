@@ -44,7 +44,7 @@ const buttonAddSubjectFunction = () => {
 	const name = input.value;
 	input.value = "";
 
-	if (name === 0) {
+	if (name == 0) {
 		mess = "Wpisz przedmiot";
 		communication() 
 	}
