@@ -1,0 +1,957 @@
+body {
+    margin: 0;
+    padding: 0;
+    transition-duration: 0.5s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+    text-decoration: none;
+}
+
+#n {
+    display: none;
+}
+
+#b {
+    display: block;
+}
+
+.window {
+    display: none;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+
+}
+
+.window-content {
+    display: block;
+    border-radius: 20px;
+    width: 950px;
+    height: 650px;
+    background: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    margin: auto;
+    text-align: center;
+    font-size: 50px;
+}
+
+.window-container {
+    display: none;
+    border-radius: 20px;
+    width: 950px;
+    height: 650px;
+    background: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    margin: auto;
+    text-align: center;
+    font-size: 50px;
+}
+
+.window-main-container {
+    margin: 0 auto;
+}
+
+.circle-container {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border: 3px solid #02437D;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.circle-active {
+    background-color: #02437D;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #02437D;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.window-content-container {
+    height: 480px;
+    display: flex;
+}
+
+.window-text {
+    width: 50%;
+    margin-top: 30px;
+}
+
+.window-text h2{
+    font-size: 30px;
+    text-align: left;
+    margin: 20px 20px 5px 20px;
+    color: #787878;
+
+}
+
+.window-text p{
+    font-size: 20px;
+    margin: 0px 20px 20px 20px;
+    text-align: left;
+    color: #8F8F8F;
+}
+
+.window-img-1 {
+    width: 50%;
+}
+
+.window-img-1 img {
+    height: 400px;
+}
+
+.window-img-2 {
+    width: 50%;
+}
+
+.window-img-2 img{
+    margin-top: 20px;
+    height: 250px;
+}
+
+.window-img-3 {
+    width: 50%;
+}
+
+.window-img-3 img{
+    height: 160px;
+    margin-top: 60px;
+}
+
+.window-img-4 {
+    width: 50%;
+}
+
+.window-img-4 img{
+    margin-top: 20px;
+    height: 310px;
+}
+
+.window-content-containr img {
+    height: 350px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 950px;
+    background-color: #fff;
+    background: white;
+    margin: 0 auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;;
+    padding-bottom: 20px;
+}
+
+.window-container-active {
+    display: block;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    max-width: 950px;
+    background: white;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    margin: auto;
+    text-align: center;
+    font-size: 50px;
+}
+
+#none {
+    display: block;
+}
+
+.next {
+    width: 100px;
+    height: 50px;
+    background-color: #02437D;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 19px;
+    cursor: pointer;
+    margin: 0px 15px 0px 15px;
+}
+
+.previous {
+    width: 100px;
+    height: 50px;
+    background-color: #02437D;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 19px;
+    cursor: pointer;
+    margin: 0px 15px 0px 15px;
+}
+
+.goto {
+    width: 100px;
+    height: 50px;
+    background-color: #02437D;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 19px;
+    cursor: pointer;
+    margin: 0px 15px 0px 15px;
+    display: none;
+}
+
+.message {
+    display: none;
+    position: fixed;
+    margin: 15px;
+    width: 250px;
+    background-color: #ac1d35;
+    border: 1px solid red;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    text-align: left;
+    padding: 15px 0px 15px 15px;
+}
+
+.nav {
+    padding: 10px 0px;
+    width: 100%;
+    z-index: 10;
+    transition: 0.5s;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.navigation {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-ul {
+    width: auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+.list-ul {
+    display: flex;
+    align-items: center;
+	padding: 0;
+	list-style-type: none;
+	font-size: 18px;
+	height: 100%;
+    line-height: 200%;
+    color: black;
+    text-align: center;
+}
+
+.list-ul span {
+    margin-right: 5px;
+    color: #02437D;
+}
+
+.list-li a {
+    height: 100%;
+	color: black;
+	text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+}
+
+.list-li {
+    width: 160px;
+    cursor: pointer;
+}
+
+ul > li:hover  {
+    transition-duration: 0.5s;
+    color: grey;
+}
+
+ul > li:hover > a {
+    color: grey;
+    transition-duration: 0.5s;
+}
+
+@media (max-width: 550px) {
+    .list-li {
+        width: 100px;
+    }
+
+    .text-content h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+}
+
+.wrapper {
+    height: 3000px;
+    display: flex;
+}
+
+.leftContent {
+    width: 400px;
+}
+
+.result {
+    display: flex;
+}
+
+.showResult {
+    height: 50px;
+    width: 228px;
+    background-color: #02437D;
+    color: white;
+    font-size: 21px;
+    border: none;
+    margin: 0px 0px 0px 8px;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 13px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.resultText {
+    margin: 5px;
+}
+
+.showresulttext {
+    border: 6px solid #02437D;
+    height: 38px;
+    width: 70px;
+    margin-left: 10px;
+    background: white;
+    border-radius: 5px;
+}
+
+.grade-table {
+    display: flex;
+    margin: 5px;
+}
+
+#grade-value {
+    font-size: 30px;
+    width: 38px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.conector {
+    margin: 10px 5px 0px 5px;
+}
+
+#grade-number {
+    font-size: 30px;
+    width: 38px;
+    text-align: center;
+    color: #02437D;
+    border: 2px solid #02437D;
+    border-radius: 50%;
+}
+
+.menu {
+    height: 52px;
+    background-color: #0099C9;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 3px;
+}
+
+.menu-bottom {
+    height: 150px;
+    background-color: #0099C9;
+}
+.menu-active {
+    height: 150px;
+    background:red;
+    position: absolute;
+}
+
+.menu h3 {
+    font-size: 15px;
+    color: white;
+    padding: 17px;
+    border-right: 2px solid white;
+}
+
+.menu-select {
+    width: 280px;
+}
+
+.menu span {
+    color: white;
+    font-size: 30px;
+    position: relative;
+    top: 10px;
+}
+
+.menu-right {
+    text-align: center;
+    width: 50px;
+    position: relative;
+}
+
+.schoolSubjectContent {
+    transition: 0.5s;
+}
+
+.schoolSubject {
+    background-color: #006CCB;
+    min-width: 320px;
+    color: white;
+    text-align: left;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.5s;
+    margin: 4px 0px 4px 0px;
+    max-width: 300px;
+}
+
+.schoolSubjectText-h2 {
+    font-size: 22px;
+    padding: 17px;
+    max-width: 251px;
+}
+
+.remove {
+    position: relative;
+    min-width: 35px;
+    background-color: #02437D;
+    color: white;
+    font-size: 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.remove:hover {
+    background-color: rgb(0, 33, 61);
+}
+
+.buttonAddSubject {
+    padding: 10px;
+    width: 300px;
+    background-color: #02437D;
+    border-radius: 5px;
+    margin: 5px 5px 10px 10px;
+    cursor: pointer;
+    display: flex;
+}
+
+.buttonAddKomunikat {
+    margin: 10px 0px 10px 10px;
+}
+
+.buttonAddSubject p {
+    color: white;
+    font-size: 25px;
+    position: relative;
+    top: 6px;
+    left: 15px;
+}
+
+.addButton {
+    width: 100px;
+    font-size: 25px;
+    color: white;
+    background-color: #02437D;
+    border: none;
+    cursor: pointer;
+}
+
+.addButton:hover {
+    background-color: rgb(4, 54, 97);
+}
+
+.buttonAddSubject input {
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+
+}
+
+.rightContent {
+    width: 100%;
+    background-color: rgb(250, 250, 250);
+    border-left: 1px solid rgb(224, 224, 224);
+}
+
+
+.table {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.table-one {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.btn {
+    cursor: pointer;
+    font-size: 33px;
+    text-align: center;
+    color: white;
+    border-radius: 50%;
+    min-width: 45px;
+    height: 45px;
+    background-color: #0099C9;
+    border: 2px solid #0099C9;
+    margin: 0px 7px 0px 7px;
+}
+
+.grade {
+    min-height: 60px;
+    min-width: 60px;
+    background-color: #D44242;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    margin: 4px 7px 4px 0px;
+}
+
+.average {
+    height: 33px;
+    width: 47px;
+    border: 3px solid #006CCB;
+    border-radius: 15px;
+    text-align: right;
+    margin-right: 7px;
+    cursor: default;
+}
+
+.avg {
+    font-size: 10px;
+    color: #0099C9;
+    font-weight: 900;
+    text-align: center;
+    
+}
+
+.averageText {
+    text-align: center;
+    font-size: 19px;
+    padding: 1px;
+    color: #0099C9;
+    line-height: 17px;
+
+}
+
+.average span {
+    margin-right: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #02437D;
+}
+
+.average:hover span {
+    color: rgb(0, 27, 51);
+    transform: rotate(250deg);
+    transition-duration: 1s;
+}
+
+.gradeNumber-h3 {
+    text-align: center;
+    font-size: 33px;
+    position: relative;
+    height: 38px;
+    border-bottom: 2px solid white;
+}
+
+
+.inputGrade {
+    text-align: center;
+    border-right: 50%;
+    padding-left: 5px;
+    height: 23px;
+    width: 50px;
+    border: none;
+    border-top: 2px solid #0099C9;
+    border-right: 2px solid #0099C9;
+    border-bottom: 1px solid #0099C9;
+    color: #0099C9;
+    font-size: 24px;
+    font-weight: 900;
+    border-top-right-radius: 5px;
+}
+
+.inputWeight {
+    text-align: center;
+    border-right: 50%;
+    padding-left: 5px;
+    height: 23px;
+    width: 50px;
+    border: none;
+    border-top: 1px solid #0099C9;
+    border-right: 2px solid #0099C9;
+    border-bottom: 2px solid #0099C9;
+    color: #0099C9;
+    font-size: 24px;
+    font-weight: 900;
+    border-bottom-right-radius: 5px;
+}
+
+.enterGrade {
+    display: flex;
+    margin-left: 10px;
+    background-color: #0099C9;
+    color: white;
+    border-radius: 5px;
+    height: 52px;
+}
+
+.enterGradeText {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.enterGradeText h3{
+    font-size: 17px;
+    padding-top: 3px;
+}
+
+.numbers {
+    height: 50px;
+    width: 57px;
+}
+
+.enterWeight {
+    display: flex;
+    margin-left: 50px;
+    background-color: #02437D;
+    color: white;
+    height: 52px;
+}
+
+.enterWeight h4 {
+    line-height: 50px;
+    margin-left: 10px;
+}
+
+.removeGrade {
+    width: 15px;
+    height: 16px;
+    background-color: #0000006b;
+    border: none;
+    color: white;
+    float: right;
+    cursor: pointer;
+    position: relative;
+    bottom: 40px;
+}
+
+.weight {
+    text-align: center;
+    font-size: 11px;
+    position: relative;
+    left: 8px;
+    font-weight: 900;
+    margin-top: 3px;
+}
+
+input::placeholder { font-size: 16px; padding-left: 10px;}
+
+@media (max-width: 1000px) {
+    input::placeholder { font-size: 15px; padding-left: 8px;}
+
+    .numbers {
+        width: 45px;
+    }
+
+    .weight {
+        margin-top: 0;
+        font-size: 10px;
+        left: 6px;
+    }
+
+    .schoolSubject {
+        width: 250px;
+        min-width: auto;
+    }
+
+    .schoolSubjectText-h2 {
+        padding: 14px;
+        font-size: 18px;
+        max-width: 187px;
+    }
+
+    .btn {
+        height: 38px;
+        min-width: 38px;
+        font-size: 28px;
+    }
+
+    .grade {
+        min-height: 50px;
+        min-width: 50px;
+    }
+
+    .gradeNumber-h3 {
+        font-size: 29px;
+        height: 34px;
+    }
+
+    .removeGrade {
+        width: 12px;
+        height: 12px;
+        font-size: 11px;
+        bottom: 36px;
+    }
+
+    .average {
+        height: 28px;
+        width: 42px;
+    }
+
+    .averageText {
+        font-size: 15px;
+        line-height: 12px;
+    }
+
+    .buttonAddSubject {
+        width: 240px;
+        margin: 5px;
+        padding: 6px;
+    }
+
+    .buttonAddSubject input {
+        width: 180px;
+        height: 30px;
+        font-size: 17px;
+    }
+
+    .addButton {
+        font-size: 13px;
+        width: 120px;
+        padding: 0px 10px 0px 10px;
+    }
+
+    .showResult {
+        width: 168px;
+        height: 42px;
+        font-size: 12px;
+        padding-left: 9px;
+        margin-left: 5px;
+    }
+
+    .showresulttext {
+        height: 30px;
+        width: 62px;
+    }
+
+    .resultText {
+        margin: 1px;
+    }
+
+    .menu {
+        height: 46px;
+    }
+
+    .menu-select {
+        width: 217px;
+    }
+
+    .gradeOpen {
+        padding: 5px;
+    }
+
+    .menu h3 {
+        padding: 14px 6px 14px 6px;
+    }
+    .enterGrade {
+        height: 46px;
+    }
+    .enterGrade h4 {
+        line-height: 45px;
+    }
+    .inputGrade {
+        height: 20px;
+        width: 45px;
+        font-size: 20px;
+    }
+
+    .inputWeight {
+        height: 20px;
+        width: 45px;
+        font-size: 20px;
+    }
+
+    .enterGradeText h3 {
+        padding-top: 2px;
+    }
+
+    .enterGradeText {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+    .message {
+        width: 200px;
+        font-size: 15px;
+        padding: 10px 0px 10px 10px;
+    }
+
+    .window-container-active {
+        margin-right: 14px;
+        margin-left: 14px;
+    }
+
+    .buttons-container {
+        margin: 0px 14px 0px 14px;
+    }
+}
+
+@media (max-width: 910px) {
+    .window-content-container {
+        height: 400px;
+    }
+    .window-container-active {
+        height: 510px;
+    }
+    .circle-container {
+        height: auto;
+        margin-top: 15px;
+    }
+
+    .window-content-container {
+        display: block;
+    }
+
+    .window-text {
+        width: 100%;
+        margin-top: 2px;
+    }
+
+    .window-text h2 {
+        font-size: 25px;
+    }
+
+    .window-text p {
+        font-size: 14px;
+    }
+
+    .window-img-1 {
+        width: 100%;
+        margin: auto;
+    }
+
+    .window-img-1 img {
+        height: 350px;
+    }
+
+    .window-img-2 {
+        width: 100%;
+    }
+
+    .window-img-2 img {
+        height: 280px;
+        margin-top: 10px;
+    }
+
+    .window-img-3 {
+        width: 100%;
+    }
+
+    .window-img-3 img {
+        height: 160px;
+    }
+
+    .window-img-4 {
+        width: 100%;
+    }
+
+    .window-img-4 img {
+        height: 280px;
+        margin-top: 1px;
+    }
+
+    .buttons-container {
+        justify-content: center;
+        margin: 0px 14px 0px 14px;
+    }
+
+    .button {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 875px) {
+    .btn {
+        position: unset; 
+    }
+
+    .enterGrade h4 {
+        width: 162px;
+    }
+}
+
+@media (max-width: 480px) { 
+    .window-container-active {
+        height: 430px;
+    }
+
+    .window-content-container {
+        height: 350px;
+    }
+
+    .window-text h2 {
+        margin: 0px 0px 5px 20px;
+    }
+
+    .window-text p {
+        margin-bottom: 5px;
+    }
+
+    .circle-container {
+        margin-top: 6px;
+    }
+
+    .window-img-1 img {
+        height: 250px;
+    }
+
+    .window-img-2 img {
+        height: 170px;
+        margin-top: 10px;
+    }
+    .window-img-3 img {
+        height: 100px;
+    }
+
+    .window-img-4 img {
+        height: 180px;
+        margin-top: 1px;
+    }
+}   

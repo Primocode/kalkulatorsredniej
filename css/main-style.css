@@ -1,0 +1,392 @@
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+    text-decoration: none;
+}
+
+.nav {
+    padding: 20px 0px;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    transition: 0.5s;
+}
+
+.navigation {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.list-ul {
+    display: flex;
+    align-items: center;
+	padding: 0;
+	list-style-type: none;
+	font-size: 18px;
+	height: 100%;
+	line-height: 200%;
+    color: white;
+    text-align: center;
+}
+
+.list-li a {
+    height: 100%;
+	color: black;
+	text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+}
+
+.list-li {
+    width: 160px;
+}
+
+ul > li:hover  {
+    transition-duration: 0.5s;
+    color: grey;
+}
+
+ul > li:hover > a {
+    color: grey;
+    transition-duration: 0.5s;
+
+}
+
+@media (max-width: 550px) {
+    .list-li {
+        width: 100px;
+    }
+
+    .text-content h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+}
+
+
+.nav-active {
+    padding: 10px 0px;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    background-color: #fcfcfc;
+    transition: 0.5s;
+    -webkit-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+}
+
+.nav-active .logo h2{
+    color: rgb(92, 92, 92);
+}
+
+.nav-active .menu .list-ul a {
+    color: rgb(92, 92, 92);
+}
+
+.nav-active .menu-toggle {
+    color: #438afc;
+}
+
+
+header {
+    width: 100%;
+    height: 80vh;
+    -webkit-border-bottom-right-radius: 50%;
+    -webkit-border-bottom-left-radius: 50%;
+    -moz-border-radius-bottomright: 50%;
+    -moz-border-radius-bottomleft: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    background-color: #53c5d4a8;
+}
+
+.text-content {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+}
+
+.text-content h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.text-content p {
+    text-align: center;
+    font-size: 20px;
+    color: #666666;
+}
+
+.text-content-span {
+    color: #006CCB;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.button-start {
+    background-color: #1C8AF5;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.button-information {
+    background-color: #1C8AF5;
+    border-radius: 10px;
+    padding: 10px 15px 10px 15px;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.main-box {
+    justify-content: center;
+    position: relative;
+    bottom: 200px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    height: 300px;
+    width: 250px;
+    margin: 10px;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(214, 214, 214, 0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(214, 214, 214, 0.75);
+    box-shadow: 0px 0px 10px 0px rgba(214, 214, 214, 0.75);
+    border-radius: 5px;
+}
+
+.box h2 {
+    font-size: 26px;
+    text-align: center;
+    margin: 15px 0px 0px 0px;
+    color: #006CCB;
+}
+
+.box p {
+    line-height: 25px;
+    text-align: center;
+    margin: 10px;
+    color: #858585;
+
+}
+
+.about-to-the-tool {
+    text-align: center;
+    font-size: 35px;
+    color: #525252;
+    margin-bottom: 15px;
+}
+
+.main-content-information {
+    max-width: 1200px;
+    padding: 40px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.text-information {
+    margin: 10px;
+    width: 450px;
+}
+
+.text-information h2 {
+    font-size: 25px;
+    margin: 20px;
+    color: #006CCB;
+}
+
+.text-information p {
+    margin: 20px;
+    color: #006CCB;
+}
+
+.img-information {
+    margin: 10px;
+    width: 450px;
+}
+
+.img-information img {
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(207, 207, 207, 0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(207, 207, 207, 0.75);
+    box-shadow: 0px 0px 10px 0px rgba(207, 207, 207, 0.75);
+}
+
+.img-information-1 img {
+    height: 330px;
+}
+
+.img-information-2 img {
+    height: 250px;
+}
+
+.img-information-3 img {
+    height: 50px;
+    margin-top: 50px;
+}
+
+.img-information-4 img {
+    height: 160px;
+}
+
+.img-information-grade-weight img {
+    height: 130px;
+}
+
+.img-information-5 img {
+    height: 50px;
+    margin-top: 50px;
+}
+
+.img-information-6 img {
+    height: 250px;
+}
+
+@media (max-width: 830px) {
+    .main-content-information {
+        padding: 10px 10px 10px 10px;
+    }
+
+    .text-information {
+        width: 350px;
+    }
+    .text-information h2 {
+        margin: 5px;
+    }
+
+    .text-information p {
+        margin: 5px;
+    }
+
+    .img-information {
+        width: 350px;
+        text-align: center;
+    }
+
+    .img-information-1 img {
+        height: 270px;
+    }
+
+    .img-information-2 img {
+        height: 180px;
+    }
+
+    .img-information-3 img {
+        height: 40px;
+    }
+
+    .img-information-4 img {
+        height: 100px;
+    }
+
+    .img-information-grade-weight img {
+        height: 100px;
+    }
+
+    .img-information-5 img {
+        height: 40px;
+    }
+
+    .img-information-6 img {
+        height: 220px;
+    }
+
+}
+
+@media (max-width: 630px) {
+    .text-content h1 { 
+        font-size: 30px;
+    }
+
+    .text-content p {
+        font-size: 18px;
+    }
+    .main-content-information {
+        flex-wrap: wrap;
+    }
+
+    .main-content-information-2 {
+        flex-wrap: wrap-reverse;
+    }
+
+    .img-information-1 img {
+        height: 220px;
+    }
+
+    .img-information-2 img {
+        height: 150px;
+    }
+
+    .img-information-3 img {
+        height: 40px;
+    }
+
+    .img-information-4 img {
+        height: 90px;
+    }
+
+    .img-information-5 img {
+        height: 45px;
+    }
+
+    .img-information-6 img {
+        height: 200px;
+    }
+}
+
+@media (max-height: 890px) {
+    .main-box {
+        position: unset;
+    }
+}
+
+.start-tool {
+    background-color: #006CCB;
+    text-align: center;
+    border-bottom: 2px solid rgb(202, 202, 202);
+}
+
+.start-tool-button {
+    height: 60px;
+    font-size: 20px;
+    width: 220px;
+    font-weight: 900;
+    color: white;
+    background-color: #00000000;
+    border: 2px solid white;
+    padding: 10px;
+    margin: 50px 0px 50px 0px;
+    cursor: pointer;
+}
+
+
+footer {
+    background-color: #006CCB;
+    font-size: 17px;
+    color: white;
+    padding: 25px 0px 25px 0px;
+    text-align: center;
+}
