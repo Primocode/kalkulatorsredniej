@@ -108,8 +108,9 @@ header {
     -moz-border-radius-bottomright: 50%;
     -moz-border-radius-bottomleft: 50%;
     border-bottom-right-radius: 50%;
+    box-shadow: 0px 0px 57px 0px gainsboro;
     border-bottom-left-radius: 50%;
-    background-color: #53c5d4a8;
+    background-color: #fbfbfba8;
 }
 
 .text-content {
@@ -172,9 +173,9 @@ header {
     width: 250px;
     margin: 10px;
     background-color: white;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(214, 214, 214, 0.75);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(214, 214, 214, 0.75);
-    box-shadow: 0px 0px 10px 0px rgba(214, 214, 214, 0.75);
+    -webkit-box-shadow: 0px 0px 58px 0px rgba(214, 214, 214, 0.75);
+    -moz-box-shadow: 0px 0px 58px 0px rgba(214, 214, 214, 0.75);
+    box-shadow: 0px 0px 58px 0px rgba(214, 214, 214, 0.75);
     border-radius: 5px;
 }
 
@@ -221,7 +222,7 @@ header {
 
 .text-information p {
     margin: 20px;
-    color: #006CCB;
+    color: #909090;
 }
 
 .img-information {
@@ -230,9 +231,9 @@ header {
 }
 
 .img-information img {
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(207, 207, 207, 0.75);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(207, 207, 207, 0.75);
-    box-shadow: 0px 0px 10px 0px rgba(207, 207, 207, 0.75);
+    -webkit-box-shadow: 0px 0px 56px 0px rgba(207, 207, 207, 0.75);
+    -moz-box-shadow: 0px 0px 56px 0px rgba(207, 207, 207, 0.75);
+    box-shadow: 0px 0px 56px 0px rgba(207, 207, 207, 0.75);
 }
 
 .img-information-1 img {
