@@ -97,14 +97,13 @@ const buttonAddSubjectFunction = () => {
 		function averageButtonFunction(e) {
 			let idAverageText = averageText.dataset.id;
 			let nodeListGrade = document.querySelectorAll(`[data-id='id${idAverageText}']`);
-
-			for (let nmb = 0; nodeListGrade.length > nmb; nmb++) {
-				let valueDataSetGrade = Number(nodeListGrade[nmb].dataset.weight);
+			nodeListGrade.forEach((item, i) => {
+				let valueDataSetGrade = Number(nodeListGrade[i].dataset.weight);
 				averageValueWeight = averageValueWeight + valueDataSetGrade;
 
-				let valueDataSetGrade2 = Number(nodeListGrade[nmb].dataset.adding);
+				let valueDataSetGrade2 = Number(nodeListGrade[i].dataset.adding);
 				averageValueSumGrade = averageValueSumGrade + valueDataSetGrade2;
-			}
+			})
 
 			function count() {
 				if ((averageValueSumGrade / averageValueWeight) > 0.1) {
@@ -246,15 +245,13 @@ gradeOpen.addEventListener('click', gradeOpenFunction);
 
 function counting() {
 	let averageTextNode = document.querySelectorAll('.averageText');
-	let averageTextLength = averageTextNode.length;
-
-	for (i = 0; i < averageTextLength; i++) {
+	averageTextNode.forEach((item, i) => {
 		let CountingAverage = Number(averageTextNode[i].innerText);
 		averageSchoolSubject = averageSchoolSubject + CountingAverage;
 		if (CountingAverage > 0.5) {
 			length++
 		}
-	}
+	})
 
 }
 

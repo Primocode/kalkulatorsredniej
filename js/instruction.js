@@ -13,7 +13,7 @@ if (true) {
 		window.remove();
 	}
 
-	function check() {
+	const check = () => {
 		if (number == 0) {
 			previous.style.display = "none";
 		}
@@ -28,9 +28,9 @@ if (true) {
 	check()
 
 	const addClassName = () => {
-		for (let i = 0; i < window1.length; i++) {
-			window1[i].className = "window-container";
-		}
+		window1.forEach(item => {
+			item.className = "window-container";
+		})
 	}
 
 	const nextFunction = () => {
