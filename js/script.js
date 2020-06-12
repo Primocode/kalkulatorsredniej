@@ -1,7 +1,4 @@
-const buttonAddSubject = document.querySelector('.addButton');
-const rightContent = document.querySelector('.content');
-const resultText = document.querySelector('.resultText');
-const gradeOpen = document.querySelector('.menu');
+const resultField = document.querySelector('.resultText');
 let inputWeight = document.querySelector('.inputWeight');
 let inputGrade = document.querySelector('.inputGrade');
 
@@ -18,7 +15,7 @@ inputWeight.addEventListener('keydown', function() {
 });
 
 let numerous = 0;
-let tab = [];
+let grades = [];
 let averageValueWeight = 0;
 let averageValueSumGrade = 0;
 let length = 0;
@@ -26,31 +23,29 @@ let averageSchoolSubject = 0;
 const tabColors = ["#D44242", "#7F5CB4", "#E8B200","#00A1E8", "#6BAB4C", "#16D900"];
 document.querySelector('.enterGrade').style.display = "none";
 
-const buttonAddSubjectFunction = () => {
-	let input = document.querySelector('.text');
-	if (input.value == 0) {
+const buttonAddSubject = () => {
+	let schoolSubject = document.querySelector('.text');
+	if (schoolSubject.value == 0) {
 		communication("Wpisz przedmiot");
-	}
-
-	else {
+	} else {
 		document.querySelector('.enterGrade').style.display = "flex";
 		numerous++
 		const addTable = document.createElement('div');
-		rightContent.appendChild(addTable);
+		document.querySelector('.content').appendChild(addTable);
 		addTable.classList.add('table');
 
-		const div = document.createElement('div');
-		addTable.appendChild(div);
-		div.classList.add('schoolSubject');
+		const schoolSubjectContainer = document.createElement('div');
+		addTable.appendChild(schoolSubjectContainer);
+		schoolSubjectContainer.classList.add('schoolSubject');
 		
 		const subjectAdd = document.createElement("h2");
-		div.appendChild(subjectAdd);
+		schoolSubjectContainer.appendChild(subjectAdd);
 		subjectAdd.classList.add('schoolSubjectText-h2');
-		subjectAdd.textContent = input.value;
+		subjectAdd.textContent = schoolSubject.value;
 	
 		const subjectRemove = document.createElement("button");
 		subjectRemove.appendChild(document.createTextNode("X"));
-		div.appendChild(subjectRemove);
+		schoolSubjectContainer.appendChild(subjectRemove);
 		subjectRemove.classList.add('remove');
 		subjectRemove.dataset.id = numerous;
 
@@ -75,40 +70,36 @@ const buttonAddSubjectFunction = () => {
 		averageText.textContent = "0";
 		averageText.dataset.id = subjectRemove.dataset.id;
 		averageText.dataset.value = 0;
-		const averageButtonFunction = (e) => {
+		const averageButton = (e) => {
 			let nodeListGrade = document.querySelectorAll(`[data-id='id${averageText.dataset.id}']`);
 			nodeListGrade.forEach((item, i) => {
 				averageValueWeight += Number(nodeListGrade[i].dataset.weight);
 				averageValueSumGrade += Number(nodeListGrade[i].dataset.adding);
 			})
-
-			const count = () => {
-				if ((averageValueSumGrade / averageValueWeight) > 0.1) {
-					averageText.dataset.sumWeight = averageValueWeight;
-					averageText.dataset.sum = averageValueSumGrade;
-					averageText.textContent = (averageValueSumGrade / averageValueWeight).toFixed(2);
-					averageText.dataset.value = (averageValueSumGrade / averageValueWeight).toFixed(2);
-				}
-				else {
-					averageText.textContent = "0";
-					averageText.dataset.value = "0";
-				}
+			if ((averageValueSumGrade / averageValueWeight) > 0.1) {
+				averageText.dataset.sumWeight = averageValueWeight;
+				averageText.dataset.sum = averageValueSumGrade;
+				averageText.textContent = (averageValueSumGrade / averageValueWeight).toFixed(2);
+				averageText.dataset.value = (averageValueSumGrade / averageValueWeight).toFixed(2);
 			}
-			count()
+			else {
+				averageText.textContent = "0";
+				averageText.dataset.value = "0";
+			}
 			averageValueWeight = 0;
 			averageValueSumGrade = 0;
+			showResult();
 		} 
 
-		const subjectRemoveAll = () => {
+		subjectRemove.addEventListener('click', function() {;
 			if(document.getElementById("grade" + subjectRemove.dataset.id))  {
 				communication("Musisz usunąć pozostałe oceny.");
 			}
 			else {
-				div.remove();
+				schoolSubjectContainer.remove();
 				addTable.remove();
 			}
-		}
-		subjectRemove.addEventListener('click', subjectRemoveAll);
+		})
 
 		addGrade.addEventListener('click', function() {;
 			const valueWeight = parseInt(Number(inputWeight.value));
@@ -139,7 +130,7 @@ const buttonAddSubjectFunction = () => {
 
 					grade.style.backgroundColor = tabColors[valueGrade -1];
 	
-					tab.push((valueGrade));
+					grades.push((valueGrade));
 					gradeNumber.textContent = valueGrade;
 					inputGrade.value = "";
 	
@@ -158,46 +149,40 @@ const buttonAddSubjectFunction = () => {
 					gradeWeight.textContent = "waga " + valueWeight;
 					inputWeight.value = "";
 					
-					const gradeRemoveAll = (e) => {
-						tab.splice(tab.indexOf(Number(e.target.dataset.grade)), 1);
+					gradeRemove.addEventListener('click', function(e) {
+						grades.splice(grades.indexOf(Number(e.target.dataset.grade)), 1);
 						grade.remove();
-						averageButtonFunction();
-						showResultFunction();
-					}
-					gradeRemove.addEventListener('click', gradeRemoveAll);
+						averageButton();
+					});
 				}
-				
-			}
-			else {
+			} else {
 				communication("Najpierw musisz wpisać ocenę oraz wagę");
 			}
-			averageButtonFunction();
-			showResultFunction();
+			averageButton();
 		})
 	}
-	input.value = "";
-}
+	schoolSubject.value = "";
+};
+document.querySelector('.addButton').addEventListener('click', buttonAddSubject);
 
 let blockade = true;
 
 subjects = ["Biologia", "Chemia", "EDB", "Etyka", "Fizyka", "Geografia", "Historia", "Język angielski", "Język niemiecki", "Język polski", "Matematyka", "Muzyka", "Plastyka", "Religia", "Wiedza o społeczeństwie", "WDŻ", "Wychowanie fizyczne"];
 
-const gradeOpenFunction = () => {
+document.querySelector('.menu').addEventListener('click', function() {
 	if (blockade === false) {
 		communication("Wszystkie przedmioty zostały już dodane");
 	}
 	if (blockade) {
 		subjects.forEach((item, i) => {
 			document.querySelector('.text').value = subjects[i];
-			buttonAddSubjectFunction();
+			buttonAddSubject();
 		})
 		blockade = false;
 	}
-}
+})
 
-gradeOpen.addEventListener('click', gradeOpenFunction);
-
-const counting = () => {
+const showResult = () => {
 	let averageTextNode = document.querySelectorAll('.averageText');
 	averageTextNode.forEach((item, i) => {
 		averageSchoolSubject += Number(averageTextNode[i].innerText);
@@ -205,20 +190,16 @@ const counting = () => {
 			length++
 		}
 	})
-}
-
-const showResultFunction = () => {
-	counting()
-	resultText.textContent = (averageSchoolSubject / length).toFixed(3);
-	if (tab.length <= 0) {
-		resultText.textContent = "";
+	resultField.textContent = (averageSchoolSubject / length).toFixed(3);
+	if (grades.length <= 0) {
+		resultField.textContent = "";
 	}
 	averageSchoolSubject = 0;
 	length = 0;
 	let counts = {},
     append = '';
  
-	tab.forEach(x => { 
+	grades.forEach(x => { 
 		counts[x] = (counts[x] || 0) +1;
 	});
 
@@ -231,7 +212,6 @@ const showResultFunction = () => {
 	}
 	document.querySelector('#calc').innerHTML = append;
 }	
-buttonAddSubject.addEventListener('click', buttonAddSubjectFunction);
 
 const message = document.querySelector('.message');
 const communication = (mess) => { 
