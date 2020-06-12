@@ -1,27 +1,21 @@
 const buttonAddSubject = document.querySelector('.addButton');
 const rightContent = document.querySelector('.content');
-const addGrade = document.querySelector('.addGrade');
 const resultText = document.querySelector('.resultText');
-const gradeOpen = document.querySelector('.gradeOpen');
+const gradeOpen = document.querySelector('.menu');
 let inputWeight = document.querySelector('.inputWeight');
-let inputType = document.querySelector('.inputGrade');
+let inputGrade = document.querySelector('.inputGrade');
 
-
-const gradeFunction = () => {
-	if (inputType.value.length == 1) {
-		inputType.value = "";
+inputGrade.addEventListener('keydown', function() {
+	if (inputGrade.value.length == 1) {
+		inputGrade.value = "";
 	}
-}
+});
 
-const weightFunction = () => {
+inputWeight.addEventListener('keydown', function() {
 	if (inputWeight.value.length == 2) {
 		inputWeight.value = "";
 	}
-}
-
-inputType.addEventListener('keydown', gradeFunction);
-
-inputWeight.addEventListener('keydown', weightFunction);
+});
 
 let numerous = 0;
 let tab = [];
@@ -29,19 +23,17 @@ let averageValueWeight = 0;
 let averageValueSumGrade = 0;
 let length = 0;
 let averageSchoolSubject = 0;
-let tabColors = ["#D44242", "#7F5CB4", "#E8B200","#00A1E8", "#6BAB4C", "#16D900"];
-
-const enterGrade = document.querySelector('.enterGrade');
-enterGrade.style.display = "none";
+const tabColors = ["#D44242", "#7F5CB4", "#E8B200","#00A1E8", "#6BAB4C", "#16D900"];
+document.querySelector('.enterGrade').style.display = "none";
 
 const buttonAddSubjectFunction = () => {
 	let input = document.querySelector('.text');
 	if (input.value == 0) {
-		communication("Wpisz przedmiot") 
+		communication("Wpisz przedmiot");
 	}
 
 	else {
-		enterGrade.style.display = "flex";
+		document.querySelector('.enterGrade').style.display = "flex";
 		numerous++
 		const addTable = document.createElement('div');
 		rightContent.appendChild(addTable);
@@ -86,11 +78,8 @@ const buttonAddSubjectFunction = () => {
 		const averageButtonFunction = (e) => {
 			let nodeListGrade = document.querySelectorAll(`[data-id='id${averageText.dataset.id}']`);
 			nodeListGrade.forEach((item, i) => {
-				let valueDataSetGrade = Number(nodeListGrade[i].dataset.weight);
-				averageValueWeight = averageValueWeight + valueDataSetGrade;
-
-				let valueDataSetGrade2 = Number(nodeListGrade[i].dataset.adding);
-				averageValueSumGrade = averageValueSumGrade + valueDataSetGrade2;
+				averageValueWeight += Number(nodeListGrade[i].dataset.weight);
+				averageValueSumGrade += Number(nodeListGrade[i].dataset.adding);
 			})
 
 			const count = () => {
@@ -112,7 +101,7 @@ const buttonAddSubjectFunction = () => {
 
 		const subjectRemoveAll = () => {
 			if(document.getElementById("grade" + subjectRemove.dataset.id))  {
-				communication("Musisz usunąć pozostałe oceny.")
+				communication("Musisz usunąć pozostałe oceny.");
 			}
 			else {
 				div.remove();
@@ -121,21 +110,21 @@ const buttonAddSubjectFunction = () => {
 		}
 		subjectRemove.addEventListener('click', subjectRemoveAll);
 
-		const addGradeFunction = () => {
+		addGrade.addEventListener('click', function() {;
 			const valueWeight = parseInt(Number(inputWeight.value));
-			const nameType = parseInt(Number((inputType.value)));
-			if (nameType != "" & valueWeight != "") {
-				if (nameType > 6) {
-					communication("Maksymalna ocena to 6")
+			const valueGrade = parseInt(Number((inputGrade.value)));
+			if (valueGrade != "" & valueWeight != "") {
+				if (valueGrade > 6) {
+					communication("Maksymalna ocena to 6");
 				}
-				else if (nameType < 0) {
-					communication("Ocena nie może być mniejsza niż 1")
+				else if (valueGrade < 0) {
+					communication("Ocena nie może być mniejsza niż 1");
 				}
 				else if (valueWeight < 0) {
-					communication("waga nie moze byc mniejsza niż 1")
+					communication("waga nie moze byc mniejsza niż 1");
 				}
 				else if (valueWeight > 99) {
-					communication("waga nie może być większa niż 99")
+					communication("waga nie może być większa niż 99");
 				}
 
 				else {
@@ -148,19 +137,19 @@ const buttonAddSubjectFunction = () => {
 					grade.appendChild(gradeNumber);
 					gradeNumber.classList.add('gradeNumber-h3');
 
-					grade.style.backgroundColor = tabColors[nameType -1];
+					grade.style.backgroundColor = tabColors[valueGrade -1];
 	
-					tab.push((nameType));
-					gradeNumber.textContent = nameType;
-					inputType.value = "";
+					tab.push((valueGrade));
+					gradeNumber.textContent = valueGrade;
+					inputGrade.value = "";
 	
 					const gradeRemove = document.createElement("button");
 					gradeRemove.appendChild(document.createTextNode("X"));
 					gradeRemove.classList.add('removeGrade');
 					gradeRemove.dataset.id = "id" + subjectRemove.dataset.id;
-					gradeRemove.dataset.grade = nameType;
+					gradeRemove.dataset.grade = valueGrade;
 					gradeRemove.dataset.weight = valueWeight;
-					gradeRemove.dataset.adding = nameType * valueWeight;
+					gradeRemove.dataset.adding = valueGrade * valueWeight;
 					grade.appendChild(gradeRemove);
 	
 					const gradeWeight = document.createElement('h3');
@@ -172,31 +161,22 @@ const buttonAddSubjectFunction = () => {
 					const gradeRemoveAll = (e) => {
 						tab.splice(tab.indexOf(Number(e.target.dataset.grade)), 1);
 						grade.remove();
-						averageButtonFunction()
-						showResultFunction()
+						averageButtonFunction();
+						showResultFunction();
 					}
 					gradeRemove.addEventListener('click', gradeRemoveAll);
 				}
 				
 			}
 			else {
-				communication("Najpierw musisz wpisać ocenę oraz wagę")
+				communication("Najpierw musisz wpisać ocenę oraz wagę");
 			}
-			averageButtonFunction()
+			averageButtonFunction();
 			showResultFunction();
-		}
-		addGrade.addEventListener('click', addGradeFunction);
+		})
 	}
 	input.value = "";
 }
-
-const menuOpen = document.querySelector('.menu-right');
-let input = document.querySelector('.text');
-
-const menuOpenFunction = () => {
-	gradeOpenFunction()
-}
-menuOpen.addEventListener('click', menuOpenFunction);
 
 let blockade = true;
 
@@ -204,18 +184,13 @@ subjects = ["Biologia", "Chemia", "EDB", "Etyka", "Fizyka", "Geografia", "Histor
 
 const gradeOpenFunction = () => {
 	if (blockade === false) {
-		communication("Wszystkie przedmioty zostały już dodane")
+		communication("Wszystkie przedmioty zostały już dodane");
 	}
 	if (blockade) {
-		let subjectsLength = subjects.length;
-
-		i = -1;
-		subjectsLength = subjectsLength - 1;
-
-		while (subjectsLength > i++)  {
-			input.value = subjects[i];
-			buttonAddSubjectFunction()
-		}
+		subjects.forEach((item, i) => {
+			document.querySelector('.text').value = subjects[i];
+			buttonAddSubjectFunction();
+		})
 		blockade = false;
 	}
 }
@@ -225,9 +200,8 @@ gradeOpen.addEventListener('click', gradeOpenFunction);
 const counting = () => {
 	let averageTextNode = document.querySelectorAll('.averageText');
 	averageTextNode.forEach((item, i) => {
-		let countingAverage = Number(averageTextNode[i].innerText);
-		averageSchoolSubject = averageSchoolSubject + countingAverage;
-		if (countingAverage > 0.5) {
+		averageSchoolSubject += Number(averageTextNode[i].innerText);
+		if (Number(averageTextNode[i].innerText) > 0) {
 			length++
 		}
 	})
@@ -242,7 +216,7 @@ const showResultFunction = () => {
 	averageSchoolSubject = 0;
 	length = 0;
 	let counts = {},
-    append = ''
+    append = '';
  
 	tab.forEach(x => { 
 		counts[x] = (counts[x] || 0) +1;
@@ -255,14 +229,11 @@ const showResultFunction = () => {
 		color: ${tabColors[key -1]};">
 		${key}</div> <div class="conector">=></div> <div id="grade-number"> ${counts[key]} </div> </div>`;
 	}
-	
-	document.querySelector('#calc').innerHTML = append
+	document.querySelector('#calc').innerHTML = append;
 }	
-
 buttonAddSubject.addEventListener('click', buttonAddSubjectFunction);
 
 const message = document.querySelector('.message');
-
 const communication = (mess) => { 
 	message.style.display = "block";
 	message.textContent = mess;
